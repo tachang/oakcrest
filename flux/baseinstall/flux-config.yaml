@@ -27,5 +27,5 @@ spec:
     ref:
         branch: main
     timeout: 15s
-    url: ssh://git@github.com:tachang/oakcrest.git
+    url: ssh://git@github.com/tachang/oakcrest.git
 
