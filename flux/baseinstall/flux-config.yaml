@@ -1,0 +1,33 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+    finalizers:
+        - finalizers.fluxcd.io
+    name: flux-baseinstall
+    namespace: flux-system
+spec:
+    decryption:
+        provider: sops
+    force: false
+    interval: 10m0s
+    path: ./flux/baseinstall
+    prune: true
+    sourceRef:
+        kind: GitRepository
+        name: oakcrest
+    suspend: false
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+    finalizers:
+        - finalizers.fluxcd.io
+    name: oakcrest
+    namespace: flux-system
+spec:
+    interval: 1m0s
+    ref:
+        branch: main
+    timeout: 15s
+    url: ssh://git@github.com:tachang/oakcrest.git
+
