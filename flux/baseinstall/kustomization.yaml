@@ -4,6 +4,6 @@ resources:
   - "flux-crds.yaml"
   - "flux-system.yaml"
   - "flux-config.yaml"
+  - "namespaces.yaml"
   - "apps.yaml"
-
   # - "secrets.yaml"
