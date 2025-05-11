@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: crossplane
+  namespace: flux-system
+spec:
+  releaseName: crossplane
+  targetNamespace: crossplane
+  interval: 1m0s
+  chart:
+    spec:
+      chart: ./flux/crossplane
+      version: "0.0.1"
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: oakcrest
+      valuesFiles:
+        - ./flux/crossplane/values.yaml
+  upgrade:
+    disableWaitForJobs: false
+    force: true
+  install:
+    disableWaitForJobs: false
