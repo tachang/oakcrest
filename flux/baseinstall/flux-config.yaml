@@ -28,4 +28,3 @@ spec:
         branch: main
     timeout: 15s
     url: https://github.com/tachang/oakcrest.git
-
